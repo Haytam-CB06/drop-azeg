@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROP AZEG — Streetwear Brand</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script>
+        (() => {
+            let theme = 'light';
+            try {
+                theme = localStorage.getItem('drop-azeg-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            } catch (_) {}
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header" id="navbar">
+        <div class="header-container">
+            <a href="#home" class="brand-logo">
+                <img src="assets/logo.png" alt="DROP AZEG Logo" class="logo-img">
+                <span class="brand-name">DROP <span class="highlight-red">AZEG</span></span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="#home" class="nav-link active" data-section="home">Accueil</a>
+                <a href="#articles" class="nav-link" data-section="articles">Articles</a>
+                <a href="#commander" class="nav-link" data-section="commander">Commander</a>
+                <a href="#about" class="nav-link" data-section="about">À Propos</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le mode sombre" title="Activer le mode sombre">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                    </svg>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.8 13.1A8.8 8.8 0 0 1 10.9 3.2 8.9 8.9 0 1 0 20.8 13.1Z"></path>
+                    </svg>
+                    <span class="sr-only">Changer de thème</span>
+                </button>
+                <a href="#commander" class="btn-primary-sm">
+                    <span>Commander</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu" aria-controls="mobile-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Mobile Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="#home" class="mobile-link">Accueil</a>
+            <a href="#articles" class="mobile-link">Articles</a>
+            <a href="#commander" class="mobile-link">Commander</a>
+            <a href="#about" class="mobile-link">À Propos</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Page 1: ACCUEIL / HERO -->
+        <section id="home" class="section-hero">
+            <div class="hero-bg-wrapper">
+                <img src="assets/hero_streetwear.jpg" alt="DROP AZEG Streetwear Lifestyle" class="hero-bg-img">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    COLLECTION STREETWEAR 2026
+                </div>
+                <h1 class="hero-title">
+                    DROP <span class="highlight-red">AZEG</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Créativité, authenticité et liberté d'expression. Découvrez notre gamme d'ensembles tracksuits et hoodies au design minimaliste et affirmé.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#articles" class="btn-hero-primary">Voir les Articles</a>
+                    <a href="#about" class="btn-hero-secondary">Découvrir la Marque</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Page 2: ARTICLES -->
+        <section id="articles" class="section-articles container">
+            <div class="section-header">
+                <span class="section-tag">CATALOGUE</span>
+                <h2 class="section-title">NOS ARTICLES</h2>
+                <p class="section-description">Des pièces streetwear haute qualité pensées pour le style, le confort et l'authenticité.</p>
+            </div>
+
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">Tous les articles</button>
+                <button class="filter-btn" data-filter="tracksuit">Tracksuits</button>
+                <button class="filter-btn" data-filter="hoodie">Hoodies</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Tracksuit 1 -->
+                <article class="product-card" data-category="tracksuit">
+                    <div class="product-image-container">
+                        <span class="product-tag">Tracksuit Set</span>
+                        <img src="assets/tracksuit_red_black.jpg" alt="Tracksuit Azeg Red Line" class="product-image" draggable="false">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Tracksuit Azeg Signature</h3>
+                        <p class="product-desc">Ensemble lourd noir premium avec détails et coutures rouge Azeg. Coupe oversized confortable.</p>
+                        <div class="product-size-selector">
+                            <span class="size-label">Tailles disponibles:</span>
+                            <div class="size-options">
+                                <span class="size-badge">S</span>
+                                <span class="size-badge">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge">XL</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">499 <span class="currency">MAD</span></div>
+                            <button class="btn-order-item" data-product="Tracksuit Azeg Signature" data-price="499 MAD">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tracksuit 2 -->
+                <article class="product-card" data-category="tracksuit">
+                    <div class="product-image-container">
+                        <span class="product-tag">Tracksuit Set</span>
+                        <img src="assets/tracksuit_grey.jpg" alt="Tracksuit Urban Shadow" class="product-image" draggable="false">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Tracksuit Urban Shadow</h3>
+                        <p class="product-desc">Ensemble minimaliste gris chiné en coton molletonné haute densité. Finitions soignées.</p>
+                        <div class="product-size-selector">
+                            <span class="size-label">Tailles disponibles:</span>
+                            <div class="size-options">
+                                <span class="size-badge">S</span>
+                                <span class="size-badge">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge">XL</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">479 <span class="currency">MAD</span></div>
+                            <button class="btn-order-item" data-product="Tracksuit Urban Shadow" data-price="479 MAD">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hoodie 1 -->
+                <article class="product-card" data-category="hoodie">
+                    <div class="product-image-container">
+                        <span class="product-tag">Hoodie</span>
+                        <img src="assets/hoodie_red.jpg" alt="Hoodie Azeg Crimson Red" class="product-image" draggable="false">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Hoodie Azeg Crimson Red</h3>
+                        <p class="product-desc">Hoodie rouge vibrant aux couleurs emblématiques de la marque AZEG. Coton 400 GSM pur confort.</p>
+                        <div class="product-size-selector">
+                            <span class="size-label">Tailles disponibles:</span>
+                            <div class="size-options">
+                                <span class="size-badge">S</span>
+                                <span class="size-badge">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge">XL</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">320 <span class="currency">MAD</span></div>
+                            <button class="btn-order-item" data-product="Hoodie Azeg Crimson Red" data-price="320 MAD">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hoodie 2 -->
+                <article class="product-card" data-category="hoodie">
+                    <div class="product-image-container">
+                        <span class="product-tag">Hoodie</span>
+                        <img src="assets/hoodie_black.jpg" alt="Hoodie Minimal Black Globe" class="product-image" draggable="false">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Hoodie Minimal Black</h3>
+                        <p class="product-desc">Hoodie noir classique avec logo globe minimaliste. Un indispensable de la culture streetwear.</p>
+                        <div class="product-size-selector">
+                            <span class="size-label">Tailles disponibles:</span>
+                            <div class="size-options">
+                                <span class="size-badge">S</span>
+                                <span class="size-badge">M</span>
+                                <span class="size-badge">L</span>
+                                <span class="size-badge">XL</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">299 <span class="currency">MAD</span></div>
+                            <button class="btn-order-item" data-product="Hoodie Minimal Black" data-price="299 MAD">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Page 3: COMMANDER -->
+        <section id="commander" class="section-commander">
+            <div class="container">
+                <div class="commander-wrapper">
+                    <div class="commander-info">
+                        <span class="section-tag">COMMANDE RAPIDE</span>
+                        <h2 class="section-title">PASSER VOTRE COMMANDE</h2>
+                        <p class="commander-text">
+                            Sélectionnez vos articles, puis envoyez votre commande par WhatsApp. Nous vous répondrons pour confirmer la livraison.
+                        </p>
+                        
+                        <div class="order-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🚚</div>
+                                <div>
+                                    <h4>Livraison Rapide</h4>
+                                    <p>Livraison dans toutes les villes du Maroc sous 24 à 48 heures.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💵</div>
+                                <div>
+                                    <h4>Paiement à la Livraison</h4>
+                                    <p>Payez en toute sécurité à la réception de votre colis.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✨</div>
+                                <div>
+                                    <h4>Qualité Garantie</h4>
+                                    <p>Textiles haute densité (400 GSM) et coutures renforcées.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="commander-form-container">
+                        <form id="orderForm" class="order-form">
+                            <h3 class="form-title">Formulaire de Commande</h3>
+
+                            <div class="form-group">
+                                <label for="productSelect">Article souhaité *</label>
+                                <select id="productSelect" required>
+                                    <option value="" disabled selected>Choisissez un article...</option>
+                                    <option value="Tracksuit Azeg Signature (499 MAD)">Tracksuit Azeg Signature — 499 MAD</option>
+                                    <option value="Tracksuit Urban Shadow (479 MAD)">Tracksuit Urban Shadow — 479 MAD</option>
+                                    <option value="Hoodie Azeg Crimson Red (320 MAD)">Hoodie Azeg Crimson Red — 320 MAD</option>
+                                    <option value="Hoodie Minimal Black (299 MAD)">Hoodie Minimal Black — 299 MAD</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sizeSelect">Taille *</label>
+                                    <select id="sizeSelect" required>
+                                        <option value="" disabled selected>Taille...</option>
+                                        <option value="S">S (Small)</option>
+                                        <option value="M">M (Medium)</option>
+                                        <option value="L">L (Large)</option>
+                                        <option value="XL">XL (X-Large)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantityInput">Quantité *</label>
+                                    <input type="number" id="quantityInput" min="1" max="10" value="1" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fullName">Nom & Prénom *</label>
+                                <input type="text" id="fullName" placeholder="Ex: Taha Azegouar" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber">Numéro de Téléphone *</label>
+                                <input type="tel" id="phoneNumber" placeholder="Ex: 06 12 34 56 78" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cityAddress">Ville & Adresse de Livraison *</label>
+                                <textarea id="cityAddress" rows="3" placeholder="Ex: Casablanca, Quartier Gauthier, Rue..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit-order btn-whatsapp-order">
+                                <span>Commander sur WhatsApp</span>
+                                <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.48 0 .11 5.37.11 11.97c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.97 11.97 0 0 0 5.88 1.5h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-1.25-6.2-3.54-8.42ZM12.08 21.84a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.86 9.86 0 0 1-1.52-5.29c0-5.45 4.43-9.88 9.88-9.88 2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.45-4.44 9.87-9.9 9.87Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.78-1.66-2.08-.18-.3-.02-.46.13-.6.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.62-.91-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.08-.8.38-.27.3-1.04 1.02-1.04 2.49s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.48.71.31 1.27.5 1.71.64.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>
+                            </button>
+                            <p class="whatsapp-hint">WhatsApp s’ouvrira avec le récapitulatif prêt à envoyer.</p>
+                            <p class="whatsapp-status" id="whatsappStatus" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: À PROPOS -->
+        <section id="about" class="section-about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-brand-card">
+                        <div class="brand-badge-container">
+                            <img src="assets/logo.png" alt="DROP AZEG Logo" class="about-logo">
+                        </div>
+                        <div class="founder-info">
+                            <span class="founder-label">FONDATEUR</span>
+                            <h3 class="founder-name">Taha Azegouar</h3>
+                            <span class="flag-badge">
+                                <span>Morocco</span>
+                                <svg class="morocco-flag" viewBox="0 0 30 20" role="img" aria-label="Drapeau du Maroc">
+                                    <rect width="30" height="20" rx="2" fill="#c1272d"></rect>
+                                    <path d="m15 4.4 1.25 3.85h4.05l-3.28 2.38 1.25 3.85L15 12.1l-3.27 2.38 1.25-3.85L9.7 8.25h4.05L15 4.4Z" fill="none" stroke="#006233" stroke-width="1.15" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <span class="section-tag">NOTRE HISTOIRE & VISION</span>
+                        <h2 class="about-main-title">DROPAZEG — More than just a brand.</h2>
+
+                        <div class="about-text-block">
+                            <p class="lead-text">
+                                <strong>DROPAZEG</strong> was born from a passion for streetwear, creativity, and the freedom to express who you are.
+                            </p>
+
+                            <p>
+                                The name <strong>AZEG</strong> comes from <strong>AZEGOUAR</strong>, which means <span class="highlight-red-text">“red”</span> in Riffian, a tribute to our roots, our identity, and the culture that inspires us. That’s why red is more than just a color in our logo — it’s a symbol of where we come from and what we stand for.
+                            </p>
+
+                            <p>
+                                Our vision is simple: to create high-quality streetwear that brings together style, comfort, and authenticity. Designed for the young generation and for everyone who believes that style has no age.
+                            </p>
+
+                            <p>
+                                We don’t just create clothes. We create a way to express yourself, stand out, and wear your identity with confidence.
+                            </p>
+
+                            <div class="manifesto-box">
+                                <p class="manifesto-lines">One identity. One vision. One movement.</p>
+                                <p class="manifesto-welcome">Welcome to the world of DROPAZEG. 🇲🇦</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="brand-logo">
+                    <img src="assets/logo.png" alt="DROP AZEG" class="footer-logo">
+                    <span>DROP <span class="highlight-red">AZEG</span></span>
+                </a>
+                <p>One identity. One vision. One movement.</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#home">Accueil</a>
+                <a href="#articles">Articles</a>
+                <a href="#commander">Commander</a>
+                <a href="#about">À Propos</a>
+                <a class="footer-instagram" href="https://www.instagram.com/dropazeg/" target="_blank" rel="noopener noreferrer" aria-label="DROP AZEG sur Instagram, nouvel onglet">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="18" cy="6" r="0.8" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+
+            <div class="footer-copy">
+                <p>&copy; 2026 DROPAZEG. Tous droits réservés. Fondé par Taha Azegouar.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
